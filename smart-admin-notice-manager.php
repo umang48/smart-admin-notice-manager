@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Smart Admin Notice Manager
- * Plugin URI:  https://example.com/smart-admin-notice-manager
+ * Plugin URI:  https://phptutorialpoints.in/
  * Description: Manages plugin & theme admin notices intelligently. Groups notices, auto-hides repeated ones, and offers "Remind me later" functionality.
  * Version:     1.0.0
- * Author:      Antigravity
- * Author URI:  https://example.com
+ * Author:      umangapps48
+ * Author URI:  https://profiles.wordpress.org/umangapps48/
  * License:     GPLv2 or later
  * Text Domain: smart-admin-notice-manager
  */
