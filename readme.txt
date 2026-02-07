@@ -2,7 +2,7 @@
 Contributors: umangapps48
 Tags: admin notices, notification, manager, notices
 Requires at least: 5.0
-Tested up to: 6.9.1
+Tested up to: 6.9
 Stable tag: 1.0.0
 License: GPLv2 or later
 
