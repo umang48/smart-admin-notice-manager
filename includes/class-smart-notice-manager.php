@@ -86,7 +86,7 @@ class Smart_Notice_Manager {
 
 		// Calculate hash.
 		// Normalize content to improve stability (ignore dynamic URLs/nonces in attributes).
-		$normalized_content = strip_tags( $content );
+		$normalized_content = wp_strip_all_tags( $content );
 		// remove all whitespace to further normalize
 		$normalized_content = preg_replace( '/\s+/', '', $normalized_content );
 		$notice_hash = md5( $normalized_content );
@@ -98,7 +98,7 @@ class Smart_Notice_Manager {
 
 		// Output wrapped content.
 		echo '<div class="sanm-wrapper" data-source-slug="' . esc_attr( $source['slug'] ) . '" data-source-name="' . esc_attr( $source['name'] ) . '" data-hash="' . esc_attr( $notice_hash ) . '">';
-		echo $content;
+		echo wp_kses_post( $content );
 		echo '</div>';
 	}
 
