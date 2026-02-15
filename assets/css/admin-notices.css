@@ -1,16 +1,16 @@
-.sanm-wrapper {
+.tan-wrapper {
 	/* No default styles, we just wrap. */
 }
 
 /* Container for grouped notices */
-.sanm-group {
+.tan-group {
 	margin: 10px 0;
 	border: 1px solid #ccd0d4;
 	background: #fff;
-	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
 }
 
-.sanm-group-header {
+.tan-group-header {
 	padding: 10px 15px;
 	background: #f8f9fa;
 	border-bottom: 1px solid #ccd0d4;
@@ -20,50 +20,53 @@
 	cursor: pointer;
 }
 
-.sanm-group-title {
+.tan-group-title {
 	font-weight: 600;
 	color: #1d2327;
 }
 
-.sanm-group-actions {
+.tan-group-actions {
 	font-size: 13px;
 }
 
-.sanm-group-content {
+.tan-group-content {
 	padding: 0;
-	display: none; /* Hidden by default */
+	display: none;
+	/* Hidden by default */
 }
 
-.sanm-group-content.open {
+.tan-group-content.open {
 	display: block;
 }
 
-.sanm-notice-item {
+.tan-notice-item {
 	padding: 10px 15px;
 	border-bottom: 1px solid #f0f0f1;
 	position: relative;
 }
 
-.sanm-notice-item:last-child {
+.tan-notice-item:last-child {
 	border-bottom: none;
 }
 
 /* Adjust WP default notice styles when inside our wrapper */
-.sanm-notice-item .notice,
-.sanm-notice-item .updated,
-.sanm-notice-item .error {
+.tan-notice-item .notice,
+.tan-notice-item .updated,
+.tan-notice-item .error {
 	margin: 0 !important;
 	box-shadow: none !important;
-	border-left: 4px solid #fff; /* Reset border */
+	border-left: 4px solid #fff;
+	/* Reset border */
 }
 
 /* Custom action buttons */
-.sanm-actions {
+.tan-actions {
 	margin-top: 8px;
 	text-align: right;
 }
 
-.sanm-btn-snooze, .sanm-btn-dismiss {
+.tan-btn-snooze,
+.tan-btn-dismiss {
 	color: #2271b1;
 	background: none;
 	border: none;
@@ -73,6 +76,7 @@
 	font-size: 12px;
 }
 
-.sanm-btn-snooze:hover, .sanm-btn-dismiss:hover {
+.tan-btn-snooze:hover,
+.tan-btn-dismiss:hover {
 	color: #135e96;
 }

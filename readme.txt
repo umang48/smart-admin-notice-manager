@@ -1,5 +1,5 @@
-=== Smart Admin Notice Manager ===
-Contributors: umangapps48
+=== Toggle Admin Notices ===
+Contributors: umangapps
 Tags: admin notices, notification, manager, notices
 Requires at least: 5.0
 Tested up to: 6.9
