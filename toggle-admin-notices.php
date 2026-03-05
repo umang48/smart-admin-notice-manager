@@ -14,14 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'TAN_VERSION', '1.0.0' );
-define( 'TAN_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'TAN_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'TOGGADNO_VERSION', '1.0.0' );
+define( 'TOGGADNO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'TOGGADNO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-require_once TAN_PLUGIN_DIR . 'includes/class-toggle-notice-manager.php';
+require_once TOGGADNO_PLUGIN_DIR . 'includes/class-toggle-notice-manager.php';
 
-function tan_init() {
-	$manager = new Toggle_Notice_Manager();
+function toggadno_init() {
+	$manager = new Toggadno_Notice_Manager();
 	$manager->init();
 }
-add_action( 'plugins_loaded', 'tan_init' );
+add_action( 'plugins_loaded', 'toggadno_init' );

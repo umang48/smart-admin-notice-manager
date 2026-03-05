@@ -1,16 +1,16 @@
-.tan-wrapper {
+.toggadno-wrapper {
 	/* No default styles, we just wrap. */
 }
 
 /* Container for grouped notices */
-.tan-group {
+.toggadno-group {
 	margin: 10px 0;
 	border: 1px solid #ccd0d4;
 	background: #fff;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
 }
 
-.tan-group-header {
+.toggadno-group-header {
 	padding: 10px 15px;
 	background: #f8f9fa;
 	border-bottom: 1px solid #ccd0d4;
@@ -20,39 +20,39 @@
 	cursor: pointer;
 }
 
-.tan-group-title {
+.toggadno-group-title {
 	font-weight: 600;
 	color: #1d2327;
 }
 
-.tan-group-actions {
+.toggadno-group-actions {
 	font-size: 13px;
 }
 
-.tan-group-content {
+.toggadno-group-content {
 	padding: 0;
 	display: none;
 	/* Hidden by default */
 }
 
-.tan-group-content.open {
+.toggadno-group-content.open {
 	display: block;
 }
 
-.tan-notice-item {
+.toggadno-notice-item {
 	padding: 10px 15px;
 	border-bottom: 1px solid #f0f0f1;
 	position: relative;
 }
 
-.tan-notice-item:last-child {
+.toggadno-notice-item:last-child {
 	border-bottom: none;
 }
 
 /* Adjust WP default notice styles when inside our wrapper */
-.tan-notice-item .notice,
-.tan-notice-item .updated,
-.tan-notice-item .error {
+.toggadno-notice-item .notice,
+.toggadno-notice-item .updated,
+.toggadno-notice-item .error {
 	margin: 0 !important;
 	box-shadow: none !important;
 	border-left: 4px solid #fff;
@@ -60,13 +60,13 @@
 }
 
 /* Custom action buttons */
-.tan-actions {
+.toggadno-actions {
 	margin-top: 8px;
 	text-align: right;
 }
 
-.tan-btn-snooze,
-.tan-btn-dismiss {
+.toggadno-btn-snooze,
+.toggadno-btn-dismiss {
 	color: #2271b1;
 	background: none;
 	border: none;
@@ -76,7 +76,7 @@
 	font-size: 12px;
 }
 
-.tan-btn-snooze:hover,
-.tan-btn-dismiss:hover {
+.toggadno-btn-snooze:hover,
+.toggadno-btn-dismiss:hover {
 	color: #135e96;
 }

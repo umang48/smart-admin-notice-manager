@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Toggle_Notice_Manager {
+class Toggadno_Notice_Manager {
 
 	/**
 	 * Initialize the manager.
@@ -21,19 +21,19 @@ class Toggle_Notice_Manager {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 
 		// AJAX handler for dismissed/snoozed notices.
-		add_action( 'wp_ajax_tan_dismiss_notice', array( $this, 'handle_ajax_dismiss' ) );
+		add_action( 'wp_ajax_toggadno_dismiss_notice', array( $this, 'handle_ajax_dismiss' ) );
 	}
 
 	/**
 	 * Enqueue scripts and styles.
 	 */
 	public function enqueue_assets() {
-		wp_enqueue_style( 'tan-admin-css', TAN_PLUGIN_URL . 'assets/css/admin-notices.css', array(), TAN_VERSION );
-		wp_enqueue_script( 'tan-admin-js', TAN_PLUGIN_URL . 'assets/js/admin-notices.js', array( 'jquery' ), TAN_VERSION, true );
+		wp_enqueue_style( 'toggadno-admin-css', TOGGADNO_PLUGIN_URL . 'assets/css/admin-notices.css', array(), TOGGADNO_VERSION );
+		wp_enqueue_script( 'toggadno-admin-js', TOGGADNO_PLUGIN_URL . 'assets/js/admin-notices.js', array( 'jquery' ), TOGGADNO_VERSION, true );
 		
-		wp_localize_script( 'tan-admin-js', 'tandata', array(
+		wp_localize_script( 'toggadno-admin-js', 'toggadnoData', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'nonce'   => wp_create_nonce( 'tan_nonce' ),
+			'nonce'   => wp_create_nonce( 'toggadno_nonce' ),
 		) );
 	}
 
@@ -56,7 +56,7 @@ class Toggle_Notice_Manager {
 				
 				// Skip if source is this plugin itself to avoid infinite loops or self-wrapping.
 				// We check against the current directory name.
-				if ( basename( untrailingslashit( TAN_PLUGIN_DIR ) ) === $source['slug'] ) {
+				if ( basename( untrailingslashit( TOGGADNO_PLUGIN_DIR ) ) === $source['slug'] ) {
 					continue;
 				}
 
@@ -98,7 +98,7 @@ class Toggle_Notice_Manager {
 		}
 
 		// Output wrapped content.
-		echo '<div class="tan-wrapper" data-source-slug="' . esc_attr( $source['slug'] ) . '" data-source-name="' . esc_attr( $source['name'] ) . '" data-hash="' . esc_attr( $notice_hash ) . '">';
+		echo '<div class="toggadno-wrapper" data-source-slug="' . esc_attr( $source['slug'] ) . '" data-source-name="' . esc_attr( $source['name'] ) . '" data-hash="' . esc_attr( $notice_hash ) . '">';
 		echo wp_kses_post( $content );
 		echo '</div>';
 	}
@@ -186,7 +186,7 @@ class Toggle_Notice_Manager {
 	 */
 	private function is_dismissed( $hash ) {
 		// Use get_option for global settings
-		$dismissed = get_option( 'tan_dismissed_notices', array() );
+		$dismissed = get_option( 'toggadno_dismissed_notices', array() );
 		
 		if ( ! is_array( $dismissed ) ) {
 			return false;
@@ -202,7 +202,7 @@ class Toggle_Notice_Manager {
 			}
 			// Expired, clean up.
 			unset( $dismissed[ $hash ] );
-			update_option( 'tan_dismissed_notices', $dismissed );
+			update_option( 'toggadno_dismissed_notices', $dismissed );
 		}
 
 		return false;
@@ -212,7 +212,7 @@ class Toggle_Notice_Manager {
 	 * Handle AJAX dismiss/snooze.
 	 */
 	public function handle_ajax_dismiss() {
-		check_ajax_referer( 'tan_nonce', 'nonce' );
+		check_ajax_referer( 'toggadno_nonce', 'nonce' );
 
 		if ( ! isset( $_POST['hash'] ) || ! isset( $_POST['type'] ) ) {
 			wp_send_json_error( 'Missing parameters' );
@@ -227,13 +227,13 @@ class Toggle_Notice_Manager {
 		}
 
 		// Use get_option/update_option for global settings
-		$dismissed = get_option( 'tan_dismissed_notices', array() );
+		$dismissed = get_option( 'toggadno_dismissed_notices', array() );
 		if ( ! is_array( $dismissed ) ) {
 			$dismissed = array();
 		}
 
 		$dismissed[ $hash ] = $expiration;
-		update_option( 'tan_dismissed_notices', $dismissed );
+		update_option( 'toggadno_dismissed_notices', $dismissed );
 
 		wp_send_json_success();
 	}
